@@ -19,6 +19,14 @@ import { RouterLink, RouterView } from 'vue-router'
           <font-awesome-icon icon="fa-solid fa-chart-line" class="icon" />
           <div class="">Stocks</div>
         </RouterLink>
+        <RouterLink class="menu_button" to="/">
+          <font-awesome-icon icon="fa-solid fa-building" class="icon" />
+          <div class="">Companies</div>
+        </RouterLink>
+        <RouterLink class="menu_button" to="/">
+          <font-awesome-icon icon="fa-solid fa-users-line" class="icon" />
+          <div class="">Groups</div>
+        </RouterLink>
       </div>
     </header>
     <RouterView class="main_view" />
