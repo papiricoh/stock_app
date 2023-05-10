@@ -10,26 +10,28 @@ import { RouterLink, RouterView } from 'vue-router'
         <input type="text" placeholder="Search company by label" maxlength="4">
         <button class="button is-black">EXIT</button>
       </div>
-      <div class="lateral_menu">
-        <RouterLink class="menu_button" to="/">
-          <font-awesome-icon icon="fa-solid fa-grip" class="icon" />
-          <div class="">Dashboard</div>
-        </RouterLink>
-        <RouterLink class="menu_button" to="/">
-          <font-awesome-icon icon="fa-solid fa-chart-line" class="icon" />
-          <div class="">Stocks</div>
-        </RouterLink>
-        <RouterLink class="menu_button" to="/">
-          <font-awesome-icon icon="fa-solid fa-building" class="icon" />
-          <div class="">Companies</div>
-        </RouterLink>
-        <RouterLink class="menu_button" to="/">
-          <font-awesome-icon icon="fa-solid fa-users-line" class="icon" />
-          <div class="">Groups</div>
-        </RouterLink>
+      <div class="lateral_container">
+        <div class="lateral_menu">
+          <RouterLink class="menu_button" to="/">
+            <font-awesome-icon icon="fa-solid fa-grip" class="icon" />
+            <div class="">Dashboard</div>
+          </RouterLink>
+          <RouterLink class="menu_button" to="/">
+            <font-awesome-icon icon="fa-solid fa-chart-line" class="icon" />
+            <div class="">Stocks</div>
+          </RouterLink>
+          <RouterLink class="menu_button" to="/">
+            <font-awesome-icon icon="fa-solid fa-building" class="icon" />
+            <div class="">Companies</div>
+          </RouterLink>
+          <RouterLink class="menu_button" to="/">
+            <font-awesome-icon icon="fa-solid fa-users-line" class="icon" />
+            <div class="">Groups</div>
+          </RouterLink>
+        </div>
+        <RouterView class="main_view" />
       </div>
     </header>
-    <RouterView class="main_view" />
     
   </div>
 </template>
