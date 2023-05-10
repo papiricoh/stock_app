@@ -10,8 +10,8 @@ export default {
     ],
     data () {
         return {
-            isLoading: true,
-
+            isLoading: false,
+            player: { id: 'steam:2019302' }
         }
     },
     mounted () {
@@ -21,6 +21,7 @@ export default {
     computed: {
     },
     methods: {
+        
     },
     watch: {
     }
@@ -30,33 +31,39 @@ export default {
 <template>
   <main>
     <div class="dashboard">
-        <div class="dashboard_box">
-            <div v-if="isLoading" class="spinner"></div>
+        <div v-if="isLoading" class="dashboard_box loading">
+            <div class="spinner"></div>
         </div>
-        <div class="dashboard_box">
-            <div v-if="isLoading" class="spinner"></div>
-        </div>
-        <div class="dashboard_box">
-            <div v-if="isLoading" class="spinner"></div>
-        </div>
-        <div class="dashboard_box">
-            <div v-if="isLoading" class="spinner"></div>
+        <div v-else class="dashboard_box">
+            <div class="title">Total porfolio value:</div>
         </div>
     </div>
   </main>
 </template>
 
 <style scoped>
+* {
+    color: #c4c4c4;
+}
 .dashboard {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+
 .dashboard_box {
     width: 100%;
     background-color: #343a40;
     height: 20rem;
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 1.4rem;
+    color: #c4c4c4;
+}
+
+.loading {
     align-items: center;
     justify-content: center;
 }
@@ -69,7 +76,7 @@ export default {
     border-left-color: #6c6c6c;
 
     /* Additional spinner styles */
-    animation: spinner 400ms linear infinite;
+    animation: spinner 600ms linear infinite;
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-style: solid;
