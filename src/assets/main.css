@@ -118,5 +118,11 @@ header {
 .menu_button:active {
     color: #dee2e6;
     background-color: #495057;
+    border-right: 4px solid #adb5bd;
+    transition: .4s;
+}
+
+.button_active {
+    border-right: 4px solid #adb5bd;
     transition: .4s;
 }
