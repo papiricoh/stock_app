@@ -1,5 +1,5 @@
 <script setup>
-
+import TradingChart from '../components/TradingChart.vue';
 </script>
 
 <script>
@@ -17,6 +17,7 @@ export default {
             companies: [],
             company_loading: true,
             current_company: null,
+            current_stock_data: [],
         }
     },
     async mounted () {
@@ -39,10 +40,19 @@ export default {
                 const data = await response.json();
                 console.log(data);
                 this.current_company = data;
+                this.current_stock_data = await this.generateStockData(data);
                 this.company_loading = false;
             } catch (error) {
                 console.error('Error:', error);
             }
+        },
+        async generateStockData(data) {
+            const stock_data = data.history;
+            let returned_data = [];
+            for (let index = 0; index < stock_data.length; index++) {
+                returned_data[index] = [new Date(stock_data[index].movement_date).getTime(), stock_data[index].price];
+            }
+            return returned_data;
         },
         async getAllCompaniesList() {
             try {
@@ -79,10 +89,13 @@ export default {
             SELECT A COMPANY FROM THE LIST
         </div>
         <div v-else-if="company_loading" class="chart_parent_container loading">
-            <div class="spinner"></div>
+            <div style="width: 10%;" class="spinner"></div>
         </div>
         <div v-else class="chart_parent_container">
             <h2 class="subtitle">{{current_company.company_label}} - {{current_company.company_name}}</h2>
+            <div class="chart_transaction_container">
+                <TradingChart style="width: 70%;" :data="current_stock_data"></TradingChart>
+            </div>
         </div>
     </div>
   </main>
@@ -91,6 +104,12 @@ export default {
 <style scoped>
 * {
     color: #dee2e6;
+}
+
+.chart_transaction_container {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
 }
 
 .stock_button {
@@ -134,6 +153,7 @@ export default {
     padding-bottom: 1rem;
     padding-top: 1rem;
     border-right: 1px solid #495057;
+    overflow-y: scroll;
 }
 
 .stock_dashboard {
