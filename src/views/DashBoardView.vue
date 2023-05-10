@@ -10,18 +10,33 @@ export default {
     ],
     data () {
         return {
-            isLoading: false,
-            player: { id: 'steam:2019302' }
+            isLoading: true,
+            player: { id: 'steam:2024302' },
+            user_wallet: {},
         }
     },
-    mounted () {
+    async mounted () {
+        this.user_wallet = await this.getUserWallet();
+        this.isLoading = false;
     },
     created () {
     },
     computed: {
     },
     methods: {
-        
+        async getUserWallet() {
+            try {
+                const response = await fetch('http://localhost:8080/api/users/' + this.player.id);
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
     },
     watch: {
     }
@@ -36,6 +51,14 @@ export default {
         </div>
         <div v-else class="dashboard_box">
             <div class="title">Total porfolio value:</div>
+        </div>
+        <div v-if="isLoading" class="dashboard_box loading">
+            <div class="spinner"></div>
+        </div>
+        <div v-else class="dashboard_box">
+            <div class="title">Wallet:</div>
+            <div>Avariable Money: ${{user_wallet.money.toLocaleString()}}</div>
+            <div>Total deposited money: ${{user_wallet.total_deposit.toLocaleString()}}</div>
         </div>
     </div>
   </main>
