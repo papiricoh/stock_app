@@ -4,12 +4,24 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div class="flex main_app">
-    <header class="xl:rounded-r transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-gray-900 flex-col">
-      <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
-        <RouterLink class="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded" to="/">
-          <div class="text-base leading-4">Dashboard</div>
-        </RouterLink>
-      </div>
+    <header>
+      <div class="">Stock Market</div>
+      <RouterLink class="menu_button" to="/">
+        <font-awesome-icon icon="fa-solid fa-grip" />
+        <div class="text-base leading-4">Dashboard</div>
+      </RouterLink>
+      <RouterLink class="menu_button" to="/">
+        <font-awesome-icon icon="fa-solid fa-chart-line" />
+        <div class="text-base leading-4">Stocks</div>
+      </RouterLink>
+      <RouterLink class="menu_button" to="/">
+        <font-awesome-icon icon="fa-solid fa-building" />
+        <div class="text-base leading-4">Companies</div>
+      </RouterLink>
+      <RouterLink class="menu_button" to="/">
+        <font-awesome-icon icon="fa-solid fa-users-line" />
+        <div class="text-base leading-4">Groups</div>
+      </RouterLink>
     </header>
     <div>
       dwhudihwh

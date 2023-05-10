@@ -1,7 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html, body, #app, .main_app {
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+html, body, #app {
     height: 100%;
+}
+
+.main_app {
+    display: flex;
+    justify-content: stretch;
+
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 14rem;
+}
+
+.menu_button {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
 }
