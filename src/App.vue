@@ -5,28 +5,23 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="flex main_app">
     <header>
-      <div class="">Stock Market</div>
-      <RouterLink class="menu_button" to="/">
-        <font-awesome-icon icon="fa-solid fa-grip" />
-        <div class="text-base leading-4">Dashboard</div>
-      </RouterLink>
-      <RouterLink class="menu_button" to="/">
-        <font-awesome-icon icon="fa-solid fa-chart-line" />
-        <div class="text-base leading-4">Stocks</div>
-      </RouterLink>
-      <RouterLink class="menu_button" to="/">
-        <font-awesome-icon icon="fa-solid fa-building" />
-        <div class="text-base leading-4">Companies</div>
-      </RouterLink>
-      <RouterLink class="menu_button" to="/">
-        <font-awesome-icon icon="fa-solid fa-users-line" />
-        <div class="text-base leading-4">Groups</div>
-      </RouterLink>
+      <div class="top_menu">
+        <h2>Stock_app</h2>
+        <input type="text" placeholder="Search company by label" maxlength="4">
+        <button class="button is-black">EXIT</button>
+      </div>
+      <div class="lateral_menu">
+        <RouterLink class="menu_button" to="/">
+          <font-awesome-icon icon="fa-solid fa-grip" class="icon" />
+          <div class="">Dashboard</div>
+        </RouterLink>
+        <RouterLink class="menu_button" to="/">
+          <font-awesome-icon icon="fa-solid fa-chart-line" class="icon" />
+          <div class="">Stocks</div>
+        </RouterLink>
+      </div>
     </header>
-    <div>
-      dwhudihwh
-    </div>
-    <RouterView />
+    <RouterView class="main_view" />
     
   </div>
 </template>
