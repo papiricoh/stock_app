@@ -34,6 +34,7 @@ header {
     margin-left: 14rem;
     width: 100%;
     background-color: #495057;
+    min-height: 60rem;
     height: 100%;
     display: flex;
     flex-direction: column;
