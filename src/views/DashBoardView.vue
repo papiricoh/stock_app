@@ -60,6 +60,7 @@ export default {
             <div>Total deposited money: ${{user_wallet.total_deposit.toLocaleString()}}</div>
         </div>
     </div>
+    
   </main>
 </template>
 
