@@ -29,7 +29,7 @@ export default {
             zoomType: 'x'
             },
             title: {
-            text: 'Stock Area Spline Chart'
+            text: ''
             },
             xAxis: {
             type: 'datetime'

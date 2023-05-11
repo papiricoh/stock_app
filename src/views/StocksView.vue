@@ -94,7 +94,10 @@ export default {
         <div v-else class="chart_parent_container">
             <h2 class="subtitle">{{current_company.company_label}} - {{current_company.company_name}}</h2>
             <div class="chart_transaction_container">
-                <TradingChart style="width: 70%;" :data="current_stock_data"></TradingChart>
+                <TradingChart style="width: 70%; height: 28rem;" :data="current_stock_data"></TradingChart>
+                <div class="operations_box">
+                    Market buy and sell
+                </div>
             </div>
         </div>
     </div>
@@ -106,10 +109,18 @@ export default {
     color: #dee2e6;
 }
 
+.operations_box {
+    background-color: #6c6c6c;
+    padding: 1rem;
+    width: 30%;
+    border-radius: .4rem;
+}
+
 .chart_transaction_container {
     display: flex;
     align-items: stretch;
     justify-content: stretch;
+    gap: 1rem;
 }
 
 .stock_button {
